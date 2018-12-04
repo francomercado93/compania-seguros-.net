@@ -63,38 +63,70 @@ namespace Tp_compañia_de_seguros
             }
 
         }
-
-        private void Reporte_Load(object sender, EventArgs e)
+        public void CargarComboEstados()
         {
-            this.CargarComboMedidas();
-            this.CargarComboRiesgos();
-            
-        }
-
-        private void buscarButton_Click(object sender, EventArgs e)
-        {
-           
-            reporteDVT.DataSource = this.TablaReporte();
-        }
-
-        public DataTable TablaReporte()
-        {
-            DataTable dgv = new DataTable();
-            string consultaBase = "select h.*, ms.Descripcion from hogar h inner join cuentacon cc on h.idSeguro = cc.id_seguro_hogar inner join  medidaseguridad ms on cc.id_med_Seguridad = ms.idMedidaSeguridad where ms.Descripcion = ";
-            string consulta = String.Concat(consultaBase, "'", comboMedidas.SelectedItem.ToString(), "'");
+            string consulta = "select Descripcion from estado;";
             try
             {
                 MySqlConnection conexion = Conexion.ObtenerConexion();
                 MySqlCommand comando = new MySqlCommand(consulta, conexion);
-                MySqlDataAdapter respuesta = new MySqlDataAdapter(comando);
-                respuesta.Fill(dgv);
+
+                MySqlDataReader respuesta = comando.ExecuteReader();
+
+                while (respuesta.Read())
+                {
+                    checkedListBoxEstado.Refresh();
+                    checkedListBoxEstado.Items.Add(respuesta.GetValue(0).ToString());
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
+        private void Reporte_Load(object sender, EventArgs e)
+        {
+            this.CargarComboMedidas();
+            this.CargarComboRiesgos();
+            this.CargarComboEstados();
+
+
+        }
+
+        private void buscarButton_Click(object sender, EventArgs e)
+        {
+            dataGridViewReporte.DataSource = this.TablaReporte();
+        }
+
+        public DataTable TablaReporte()
+        {
+            DataTable tablaReporte = new DataTable();
+
+            try
+            {
+                MySqlConnection conexion = Conexion.ObtenerConexion();
+                MySqlCommand comando = new MySqlCommand("tablaReporte", conexion);
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@estadoSeleccionado", checkedListBoxEstado.SelectedItem.ToString());
+                comando.Parameters.AddWithValue("@medidaSeleccionada", comboMedidas.SelectedItem.ToString());
+                comando.Parameters.AddWithValue("@riesgoSeleccionado", comboRiesgo.SelectedItem.ToString());
+                comando.Parameters.AddWithValue("@valorMin", numericUpDownMin.Value);
+                comando.Parameters.AddWithValue("@valorMax", numericUpDownMax.Value);
+                tablaReporte.Load(comando.ExecuteReader());
 
             }
             catch (Exception)
             {
                 throw;
             }
-            return dgv;
+            return tablaReporte;
+        }
+
+
+        public Boolean faltaSeleccionarCombos()
+        {
+            return comboMedidas.SelectedItem == null || comboRiesgo.SelectedItem == null;
         }
     }
 }
