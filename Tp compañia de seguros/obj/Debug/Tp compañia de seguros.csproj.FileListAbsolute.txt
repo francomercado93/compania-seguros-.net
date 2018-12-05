@@ -13,4 +13,4 @@ C:\Users\Franco\source\repos\Tp compañia de seguros\Tp compañia de seguros\obj
 C:\Users\Franco\source\repos\Tp compañia de seguros\Tp compañia de seguros\obj\Debug\Tp compañia de seguros.pdb
 C:\Users\Franco\source\repos\Tp compañia de seguros\Tp compañia de seguros\obj\Debug\Tp_compañia_de_seguros.Estadisticas.resources
 C:\Users\Franco\source\repos\Tp compañia de seguros\Tp compañia de seguros\obj\Debug\Tp_compañia_de_seguros.Inicio.resources
-C:\Users\Franco\source\repos\Tp compañia de seguros\Tp compañia de seguros\obj\Debug\Tp_compañia_de_seguros.Reporte.resources
+C:\Users\Franco\source\repos\Tp compañia de seguros\Tp compañia de seguros\obj\Debug\Tp_compañia_de_seguros.Constants.resources

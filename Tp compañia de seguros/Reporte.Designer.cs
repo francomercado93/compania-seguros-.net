@@ -68,7 +68,7 @@
             // 
             // buscarButton
             // 
-            this.buscarButton.Location = new System.Drawing.Point(73, 118);
+            this.buscarButton.Location = new System.Drawing.Point(407, 182);
             this.buscarButton.Name = "buscarButton";
             this.buscarButton.Size = new System.Drawing.Size(75, 23);
             this.buscarButton.TabIndex = 3;
@@ -134,15 +134,17 @@
             // 
             this.checkedListBoxEstado.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.checkedListBoxEstado.FormattingEnabled = true;
-            this.checkedListBoxEstado.Location = new System.Drawing.Point(487, 118);
+            this.checkedListBoxEstado.Location = new System.Drawing.Point(124, 134);
+            this.checkedListBoxEstado.MultiColumn = true;
             this.checkedListBoxEstado.Name = "checkedListBoxEstado";
-            this.checkedListBoxEstado.Size = new System.Drawing.Size(276, 75);
+            this.checkedListBoxEstado.Size = new System.Drawing.Size(627, 15);
             this.checkedListBoxEstado.TabIndex = 13;
+            this.checkedListBoxEstado.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxEstado_ItemCheck);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(431, 118);
+            this.label7.Location = new System.Drawing.Point(61, 134);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(43, 13);
             this.label7.TabIndex = 14;
@@ -153,14 +155,19 @@
             this.dataGridViewReporte.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewReporte.Location = new System.Drawing.Point(44, 211);
             this.dataGridViewReporte.Name = "dataGridViewReporte";
-            this.dataGridViewReporte.Size = new System.Drawing.Size(690, 207);
+            this.dataGridViewReporte.Size = new System.Drawing.Size(835, 243);
             this.dataGridViewReporte.TabIndex = 15;
             // 
             // numericUpDownMin
             // 
+            this.numericUpDownMin.Increment = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.numericUpDownMin.Location = new System.Drawing.Point(200, 99);
             this.numericUpDownMin.Maximum = new decimal(new int[] {
-            276447231,
+            276447232,
             23283,
             0,
             0});
@@ -170,21 +177,31 @@
             // 
             // numericUpDownMax
             // 
+            this.numericUpDownMax.Increment = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.numericUpDownMax.Location = new System.Drawing.Point(362, 97);
             this.numericUpDownMax.Maximum = new decimal(new int[] {
-            276447231,
+            276447232,
             23283,
             0,
             0});
             this.numericUpDownMax.Name = "numericUpDownMax";
             this.numericUpDownMax.Size = new System.Drawing.Size(120, 20);
             this.numericUpDownMax.TabIndex = 17;
+            this.numericUpDownMax.Value = new decimal(new int[] {
+            276447231,
+            23283,
+            0,
+            0});
             // 
             // Reporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(787, 442);
+            this.ClientSize = new System.Drawing.Size(912, 475);
             this.Controls.Add(this.numericUpDownMax);
             this.Controls.Add(this.numericUpDownMin);
             this.Controls.Add(this.dataGridViewReporte);
