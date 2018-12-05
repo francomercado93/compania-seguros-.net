@@ -34,9 +34,17 @@
             this.comboRiesgo = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.labelMed = new System.Windows.Forms.Label();
-            this.reporteDVT = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.reporteDVT)).BeginInit();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.checkedListBoxEstado = new System.Windows.Forms.CheckedListBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dataGridViewReporte = new System.Windows.Forms.DataGridView();
+            this.numericUpDownMin = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownMax = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReporte)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMax)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -51,15 +59,16 @@
             // 
             // comboMedidas
             // 
+            this.comboMedidas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboMedidas.FormattingEnabled = true;
-            this.comboMedidas.Location = new System.Drawing.Point(470, 92);
+            this.comboMedidas.Location = new System.Drawing.Point(457, 69);
             this.comboMedidas.Name = "comboMedidas";
             this.comboMedidas.Size = new System.Drawing.Size(121, 21);
             this.comboMedidas.TabIndex = 1;
             // 
             // buscarButton
             // 
-            this.buscarButton.Location = new System.Drawing.Point(175, 149);
+            this.buscarButton.Location = new System.Drawing.Point(407, 182);
             this.buscarButton.Name = "buscarButton";
             this.buscarButton.Size = new System.Drawing.Size(75, 23);
             this.buscarButton.TabIndex = 3;
@@ -69,8 +78,9 @@
             // 
             // comboRiesgo
             // 
+            this.comboRiesgo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboRiesgo.FormattingEnabled = true;
-            this.comboRiesgo.Location = new System.Drawing.Point(175, 95);
+            this.comboRiesgo.Location = new System.Drawing.Point(175, 69);
             this.comboRiesgo.Name = "comboRiesgo";
             this.comboRiesgo.Size = new System.Drawing.Size(121, 21);
             this.comboRiesgo.TabIndex = 4;
@@ -78,7 +88,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(52, 95);
+            this.label2.Location = new System.Drawing.Point(61, 69);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 13);
             this.label2.TabIndex = 5;
@@ -87,46 +97,131 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(334, 95);
+            this.label3.Location = new System.Drawing.Point(326, 69);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(114, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Medidas de seguridad:";
             // 
-            // labelMed
+            // label4
             // 
-            this.labelMed.AutoSize = true;
-            this.labelMed.Location = new System.Drawing.Point(12, 185);
-            this.labelMed.Name = "labelMed";
-            this.labelMed.Size = new System.Drawing.Size(72, 13);
-            this.labelMed.TabIndex = 2;
-            this.labelMed.Text = "Seleccionado";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(61, 95);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(87, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Valor del inmuble";
             // 
-            // reporteDVT
+            // label5
             // 
-            this.reporteDVT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.reporteDVT.Location = new System.Drawing.Point(85, 264);
-            this.reporteDVT.Name = "reporteDVT";
-            this.reporteDVT.Size = new System.Drawing.Size(598, 123);
-            this.reporteDVT.TabIndex = 7;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(154, 95);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(27, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Min:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(326, 99);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(30, 13);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Max:";
+            // 
+            // checkedListBoxEstado
+            // 
+            this.checkedListBoxEstado.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.checkedListBoxEstado.FormattingEnabled = true;
+            this.checkedListBoxEstado.Location = new System.Drawing.Point(124, 134);
+            this.checkedListBoxEstado.MultiColumn = true;
+            this.checkedListBoxEstado.Name = "checkedListBoxEstado";
+            this.checkedListBoxEstado.Size = new System.Drawing.Size(627, 15);
+            this.checkedListBoxEstado.TabIndex = 13;
+            this.checkedListBoxEstado.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxEstado_ItemCheck);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(61, 134);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(43, 13);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Estado:";
+            // 
+            // dataGridViewReporte
+            // 
+            this.dataGridViewReporte.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewReporte.Location = new System.Drawing.Point(44, 211);
+            this.dataGridViewReporte.Name = "dataGridViewReporte";
+            this.dataGridViewReporte.Size = new System.Drawing.Size(835, 243);
+            this.dataGridViewReporte.TabIndex = 15;
+            // 
+            // numericUpDownMin
+            // 
+            this.numericUpDownMin.Increment = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numericUpDownMin.Location = new System.Drawing.Point(200, 99);
+            this.numericUpDownMin.Maximum = new decimal(new int[] {
+            276447232,
+            23283,
+            0,
+            0});
+            this.numericUpDownMin.Name = "numericUpDownMin";
+            this.numericUpDownMin.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDownMin.TabIndex = 16;
+            // 
+            // numericUpDownMax
+            // 
+            this.numericUpDownMax.Increment = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericUpDownMax.Location = new System.Drawing.Point(362, 97);
+            this.numericUpDownMax.Maximum = new decimal(new int[] {
+            276447232,
+            23283,
+            0,
+            0});
+            this.numericUpDownMax.Name = "numericUpDownMax";
+            this.numericUpDownMax.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDownMax.TabIndex = 17;
+            this.numericUpDownMax.Value = new decimal(new int[] {
+            276447231,
+            23283,
+            0,
+            0});
             // 
             // Reporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1286, 460);
-            this.Controls.Add(this.reporteDVT);
+            this.ClientSize = new System.Drawing.Size(912, 475);
+            this.Controls.Add(this.numericUpDownMax);
+            this.Controls.Add(this.numericUpDownMin);
+            this.Controls.Add(this.dataGridViewReporte);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.checkedListBoxEstado);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboRiesgo);
             this.Controls.Add(this.buscarButton);
-            this.Controls.Add(this.labelMed);
             this.Controls.Add(this.comboMedidas);
             this.Controls.Add(this.label1);
             this.Name = "Reporte";
             this.Text = "Reporte";
             this.Load += new System.EventHandler(this.Reporte_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.reporteDVT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReporte)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMax)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,7 +235,13 @@
         private System.Windows.Forms.ComboBox comboRiesgo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label labelMed;
-        private System.Windows.Forms.DataGridView reporteDVT;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckedListBox checkedListBoxEstado;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridView dataGridViewReporte;
+        private System.Windows.Forms.NumericUpDown numericUpDownMin;
+        private System.Windows.Forms.NumericUpDown numericUpDownMax;
     }
 }

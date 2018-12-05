@@ -11,8 +11,16 @@ using MySql.Data.MySqlClient;
 
 namespace Tp_compañia_de_seguros
 {
+    static class Constants
+    {
+        public const decimal MAX = 100000000000000;
+        public const decimal MIN = 0;
+    }
+
     public partial class Reporte : Form
     {
+        
+
         public Reporte()
         {
             InitializeComponent();
@@ -63,38 +71,85 @@ namespace Tp_compañia_de_seguros
             }
 
         }
-
-        private void Reporte_Load(object sender, EventArgs e)
+        public void CargarComboEstados()
         {
-            this.CargarComboMedidas();
-            this.CargarComboRiesgos();
-            
-        }
-
-        private void buscarButton_Click(object sender, EventArgs e)
-        {
-           
-            reporteDVT.DataSource = this.TablaReporte();
-        }
-
-        public DataTable TablaReporte()
-        {
-            DataTable dgv = new DataTable();
-            string consultaBase = "select h.*, ms.Descripcion from hogar h inner join cuentacon cc on h.idSeguro = cc.id_seguro_hogar inner join  medidaseguridad ms on cc.id_med_Seguridad = ms.idMedidaSeguridad where ms.Descripcion = ";
-            string consulta = String.Concat(consultaBase, "'", comboMedidas.SelectedItem.ToString(), "'");
+            string consulta = "select Descripcion from estado;";
             try
             {
                 MySqlConnection conexion = Conexion.ObtenerConexion();
                 MySqlCommand comando = new MySqlCommand(consulta, conexion);
-                MySqlDataAdapter respuesta = new MySqlDataAdapter(comando);
-                respuesta.Fill(dgv);
 
+                MySqlDataReader respuesta = comando.ExecuteReader();
+                checkedListBoxEstado.Items.Add("Todos");
+                while (respuesta.Read())
+                {
+                    checkedListBoxEstado.Refresh();
+                    checkedListBoxEstado.Items.Add(respuesta.GetValue(0).ToString());
+                }
             }
             catch (Exception)
             {
                 throw;
             }
-            return dgv;
+
         }
+        private void Reporte_Load(object sender, EventArgs e)
+        {
+            this.CargarComboMedidas();
+            this.CargarComboRiesgos();
+            this.CargarComboEstados();
+            checkedListBoxEstado.SetItemChecked(0, true);
+
+        }
+
+        private void buscarButton_Click(object sender, EventArgs e)
+        {
+            dataGridViewReporte.DataSource = this.TablaReporte();
+        }
+
+        public DataTable TablaReporte()
+        {
+            DataTable tablaReporte = new DataTable();
+            
+            try
+            {
+                MySqlConnection conexion = Conexion.ObtenerConexion();
+                MySqlCommand comando = new MySqlCommand("tablaReporte", conexion);
+                comando.CommandType = CommandType.StoredProcedure;
+                if (this.faltaSeleccionarCombos())
+                {
+                    throw new Exception("Debe seleccionar una medida de seguridad y/o un riesgo.");
+                }
+                comando.Parameters.AddWithValue("@estadoSeleccionado", checkedListBoxEstado.SelectedItem.ToString());
+                comando.Parameters.AddWithValue("@medidaSeleccionada", comboMedidas.SelectedItem.ToString());
+                comando.Parameters.AddWithValue("@riesgoSeleccionado", comboRiesgo.SelectedItem.ToString());
+                if (numericUpDownMax.Value < Constants.MIN || numericUpDownMax.Value > Constants.MAX || numericUpDownMin.Value < Constants.MIN || numericUpDownMin.Value > Constants.MAX )
+                {
+                    throw new Exception("Debe ingresar valores minimos y maximos validos");
+                }
+                comando.Parameters.AddWithValue("@valorMin", numericUpDownMin.Value);
+                comando.Parameters.AddWithValue("@valorMax", numericUpDownMax.Value);
+                tablaReporte.Load(comando.ExecuteReader());
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return tablaReporte;
+        }
+
+
+        public Boolean faltaSeleccionarCombos()
+        {
+            return comboMedidas.SelectedItem == null || comboRiesgo.SelectedItem == null;
+        }
+
+        private void checkedListBoxEstado_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            for (int ix = 0; ix < checkedListBoxEstado.Items.Count; ++ix)
+                if (ix != e.Index) checkedListBoxEstado.SetItemChecked(ix, false);
+        }
+    
     }
 }
