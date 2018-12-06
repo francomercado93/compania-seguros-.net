@@ -21,46 +21,71 @@ namespace Tp_compañia_de_seguros
 
         private void Estadisticas_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = this.TablaMedidasSeguridad();
-            dataGridView2.DataSource = this.TablaRiesgos();
+            this.TablaMedidasSeguridad();
+            this.TablaRiesgos();
+            
         }
 
-        public DataTable TablaMedidasSeguridad()
+        public void TablaMedidasSeguridad()
         {
-            DataTable dgv = new DataTable();
-            string estadisticasConsulta = "select ms.Descripcion, count(*) as Cantidad from cuentacon cc inner join medidaseguridad ms on cc.id_med_seguridad = ms.idMedidaSeguridad group by cc.id_med_seguridad";
+
+            listViewMedidas.GridLines = true;
+            listViewMedidas.View = View.Details;
+
+            listViewMedidas.Columns.Add("Medidas de seguridad", 150);
+            listViewMedidas.Columns.Add("Cantidad de seguros", 150);
+            string query = "select ms.Descripcion, count(*) as Cantidad from cuentacon cc inner join medidaseguridad ms on cc.id_med_seguridad = ms.idMedidaSeguridad group by cc.id_med_seguridad";
             try
             {
                 MySqlConnection conexion = Conexion.ObtenerConexion();
-                MySqlCommand comando = new MySqlCommand(estadisticasConsulta, conexion);
-                MySqlDataAdapter respuesta = new MySqlDataAdapter(comando);
-                respuesta.Fill(dgv);
+                MySqlCommand comando = new MySqlCommand(query, conexion);
+                MySqlDataReader reader = comando.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    ListViewItem item = new ListViewItem(reader.GetString(0));
+                    item.SubItems.Add(reader.GetString(1));
+                    listViewMedidas.Items.Add(item);
+            
+                }
 
             }
             catch (Exception)
             {
                 throw;
             }
-            return dgv;
+            
+            
         }
 
-        public DataTable TablaRiesgos()
+        public void TablaRiesgos()
         {
-            DataTable dgv = new DataTable();
-            string consulta = "select r.Descripcion, count(*) as Cantidad from cubre c inner join riesgo r on c.idRiesgo = r.idRiesgo group by c.idRiesgo;";
+            listViewRiesgos.GridLines = true;
+            listViewRiesgos.View = View.Details;
+
+            listViewRiesgos.Columns.Add("Riesgos", 150);
+            listViewRiesgos.Columns.Add("Cantidad de seguros", 150);
+
+            string query = "select r.Descripcion, count(*) as Cantidad from cubre c inner join riesgo r on c.idRiesgo = r.idRiesgo group by c.idRiesgo;";
             try
             {
                 MySqlConnection conexion = Conexion.ObtenerConexion();
-                MySqlCommand comando = new MySqlCommand(consulta, conexion);
-                MySqlDataAdapter respuesta = new MySqlDataAdapter(comando);
-                respuesta.Fill(dgv);
+                MySqlCommand comando = new MySqlCommand(query, conexion);
+                MySqlDataReader reader = comando.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    ListViewItem item = new ListViewItem(reader.GetString(0));
+                    item.SubItems.Add(reader.GetString(1));
+                    listViewRiesgos.Items.Add(item);
+
+                }
 
             }
             catch (Exception)
             {
                 throw;
             }
-            return dgv;
         }
 
  

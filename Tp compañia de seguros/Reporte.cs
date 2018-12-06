@@ -11,12 +11,7 @@ using MySql.Data.MySqlClient;
 
 namespace Tp_compañia_de_seguros
 {
-    static class Constants
-    {
-        public const decimal MAX = 100000000000000;
-        public const decimal MIN = 0;
-    }
-
+    
     public partial class Reporte : Form
     {
         
@@ -101,7 +96,7 @@ namespace Tp_compañia_de_seguros
             checkedListBoxEstado.SetItemChecked(0, true);
 
         }
-
+        
         private void buscarButton_Click(object sender, EventArgs e)
         {
             dataGridViewReporte.DataSource = this.TablaReporte();
@@ -150,6 +145,12 @@ namespace Tp_compañia_de_seguros
             for (int ix = 0; ix < checkedListBoxEstado.Items.Count; ++ix)
                 if (ix != e.Index) checkedListBoxEstado.SetItemChecked(ix, false);
         }
-    
+
+        static class Constants
+        {
+            public const decimal MAX = 100000000000000;
+            public const decimal MIN = 0;
+        }
+
     }
 }
