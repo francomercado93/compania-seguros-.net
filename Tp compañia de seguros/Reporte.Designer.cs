@@ -42,6 +42,8 @@
             this.dataGridViewReporte = new System.Windows.Forms.DataGridView();
             this.numericUpDownMin = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownMax = new System.Windows.Forms.NumericUpDown();
+            this.buttonCleanRiesgos = new System.Windows.Forms.Button();
+            this.buttonCleanMed = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReporte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMax)).BeginInit();
@@ -61,7 +63,7 @@
             // 
             this.comboMedidas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboMedidas.FormattingEnabled = true;
-            this.comboMedidas.Location = new System.Drawing.Point(610, 81);
+            this.comboMedidas.Location = new System.Drawing.Point(594, 81);
             this.comboMedidas.Name = "comboMedidas";
             this.comboMedidas.Size = new System.Drawing.Size(121, 21);
             this.comboMedidas.TabIndex = 1;
@@ -80,7 +82,7 @@
             // 
             this.comboRiesgo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboRiesgo.FormattingEnabled = true;
-            this.comboRiesgo.Location = new System.Drawing.Point(237, 81);
+            this.comboRiesgo.Location = new System.Drawing.Point(197, 81);
             this.comboRiesgo.Name = "comboRiesgo";
             this.comboRiesgo.Size = new System.Drawing.Size(121, 21);
             this.comboRiesgo.TabIndex = 4;
@@ -97,7 +99,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(427, 85);
+            this.label3.Location = new System.Drawing.Point(450, 85);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(114, 13);
             this.label3.TabIndex = 6;
@@ -198,11 +200,33 @@
             0,
             0});
             // 
+            // buttonCleanRiesgos
+            // 
+            this.buttonCleanRiesgos.Location = new System.Drawing.Point(328, 80);
+            this.buttonCleanRiesgos.Name = "buttonCleanRiesgos";
+            this.buttonCleanRiesgos.Size = new System.Drawing.Size(75, 23);
+            this.buttonCleanRiesgos.TabIndex = 18;
+            this.buttonCleanRiesgos.Text = "Limpiar";
+            this.buttonCleanRiesgos.UseVisualStyleBackColor = true;
+            this.buttonCleanRiesgos.Click += new System.EventHandler(this.buttonCleanRiesgos_Click);
+            // 
+            // buttonCleanMed
+            // 
+            this.buttonCleanMed.Location = new System.Drawing.Point(725, 80);
+            this.buttonCleanMed.Name = "buttonCleanMed";
+            this.buttonCleanMed.Size = new System.Drawing.Size(75, 23);
+            this.buttonCleanMed.TabIndex = 19;
+            this.buttonCleanMed.Text = "Limpiar";
+            this.buttonCleanMed.UseVisualStyleBackColor = true;
+            this.buttonCleanMed.Click += new System.EventHandler(this.buttonCleanMed_Click);
+            // 
             // Reporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(912, 475);
+            this.Controls.Add(this.buttonCleanMed);
+            this.Controls.Add(this.buttonCleanRiesgos);
             this.Controls.Add(this.numericUpDownMax);
             this.Controls.Add(this.numericUpDownMin);
             this.Controls.Add(this.dataGridViewReporte);
@@ -245,5 +269,7 @@
         private System.Windows.Forms.DataGridView dataGridViewReporte;
         private System.Windows.Forms.NumericUpDown numericUpDownMin;
         private System.Windows.Forms.NumericUpDown numericUpDownMax;
+        private System.Windows.Forms.Button buttonCleanRiesgos;
+        private System.Windows.Forms.Button buttonCleanMed;
     }
 }

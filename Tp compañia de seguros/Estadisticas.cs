@@ -37,25 +37,28 @@ namespace Tp_compañia_de_seguros
             string query = "select ms.Descripcion, count(*) as Cantidad from cuentacon cc inner join medidaseguridad ms on cc.id_med_seguridad = ms.idMedidaSeguridad group by cc.id_med_seguridad";
             try
             {
-                MySqlConnection conexion = Conexion.ObtenerConexion();
-                MySqlCommand comando = new MySqlCommand(query, conexion);
-                MySqlDataReader reader = comando.ExecuteReader();
-
-                while (reader.Read())
+                using (var conexion = Conexion.ObtenerConexion())
                 {
-                    ListViewItem item = new ListViewItem(reader.GetString(0));
-                    item.SubItems.Add(reader.GetString(1));
-                    listViewMedidas.Items.Add(item);
-            
-                }
+                    using (var comando = new MySqlCommand(query, conexion))
+                    {
+                        using (var reader = comando.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                ListViewItem item = new ListViewItem(reader.GetString(0));
+                                item.SubItems.Add(reader.GetString(1));
+                                listViewMedidas.Items.Add(item);
 
+                            }
+                        }
+                    }
+                }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                MessageBox.Show(e.Message);
             }
-            
-            
+           
         }
 
         public void TablaRiesgos()
@@ -69,22 +72,27 @@ namespace Tp_compañia_de_seguros
             string query = "select r.Descripcion, count(*) as Cantidad from cubre c inner join riesgo r on c.idRiesgo = r.idRiesgo group by c.idRiesgo;";
             try
             {
-                MySqlConnection conexion = Conexion.ObtenerConexion();
-                MySqlCommand comando = new MySqlCommand(query, conexion);
-                MySqlDataReader reader = comando.ExecuteReader();
-
-                while (reader.Read())
+                using (var conexion = Conexion.ObtenerConexion())
                 {
-                    ListViewItem item = new ListViewItem(reader.GetString(0));
-                    item.SubItems.Add(reader.GetString(1));
-                    listViewRiesgos.Items.Add(item);
+                    using (var comando = new MySqlCommand(query, conexion))
+                    {
+                        using (var reader = comando.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                ListViewItem item = new ListViewItem(reader.GetString(0));
+                                item.SubItems.Add(reader.GetString(1));
+                                listViewRiesgos.Items.Add(item);
 
+                            }
+                        }
+                    }
                 }
-
             }
-            catch (Exception)
+
+            catch (Exception e)
             {
-                throw;
+                MessageBox.Show(e.Message);
             }
         }
 

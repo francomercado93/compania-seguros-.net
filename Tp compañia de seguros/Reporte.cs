@@ -11,10 +11,10 @@ using MySql.Data.MySqlClient;
 
 namespace Tp_compañia_de_seguros
 {
-    
+
     public partial class Reporte : Form
     {
-        
+
 
         public Reporte()
         {
@@ -27,20 +27,24 @@ namespace Tp_compañia_de_seguros
             string consulta = "select Descripcion from medidaseguridad;";
             try
             {
-                MySqlConnection conexion = Conexion.ObtenerConexion();
-                MySqlCommand comando = new MySqlCommand(consulta, conexion);
-
-                MySqlDataReader respuesta = comando.ExecuteReader();
-
-                while (respuesta.Read())
+                using (var conexion = Conexion.ObtenerConexion())
                 {
-                    comboMedidas.Refresh();
-                    comboMedidas.Items.Add(respuesta.GetValue(0).ToString());
+                    using (var comando = new MySqlCommand(consulta, conexion))
+                    {
+                        using (var respuesta = comando.ExecuteReader())
+                        {
+                            while (respuesta.Read())
+                            {
+                                comboMedidas.Refresh();
+                                comboMedidas.Items.Add(respuesta.GetValue(0).ToString());
+                            }
+                        }
+                    }
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                MessageBox.Show(e.Message);
             }
 
         }
@@ -49,20 +53,24 @@ namespace Tp_compañia_de_seguros
             string consulta = "select Descripcion from riesgo;";
             try
             {
-                MySqlConnection conexion = Conexion.ObtenerConexion();
-                MySqlCommand comando = new MySqlCommand(consulta, conexion);
-
-                MySqlDataReader respuesta = comando.ExecuteReader();
-
-                while (respuesta.Read())
+                using (var conexion = Conexion.ObtenerConexion())
                 {
-                    comboRiesgo.Refresh();
-                    comboRiesgo.Items.Add(respuesta.GetValue(0).ToString());
+                    using (var comando = new MySqlCommand(consulta, conexion))
+                    {
+                        using (var respuesta = comando.ExecuteReader())
+                        {
+                            while (respuesta.Read())
+                            {
+                                comboRiesgo.Refresh();
+                                comboRiesgo.Items.Add(respuesta.GetValue(0).ToString());
+                            }
+                        }
+                    }
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                MessageBox.Show(e.Message);
             }
 
         }
@@ -71,20 +79,25 @@ namespace Tp_compañia_de_seguros
             string consulta = "select Descripcion from estado;";
             try
             {
-                MySqlConnection conexion = Conexion.ObtenerConexion();
-                MySqlCommand comando = new MySqlCommand(consulta, conexion);
-
-                MySqlDataReader respuesta = comando.ExecuteReader();
-                checkedListBoxEstado.Items.Add("Todos");
-                while (respuesta.Read())
+                using (var conexion = Conexion.ObtenerConexion())
                 {
-                    checkedListBoxEstado.Refresh();
-                    checkedListBoxEstado.Items.Add(respuesta.GetValue(0).ToString());
+                    using (var comando = new MySqlCommand(consulta, conexion))
+                    {
+                        using (var respuesta = comando.ExecuteReader())
+                        {
+                            checkedListBoxEstado.Items.Add("Todos");
+                            while (respuesta.Read())
+                            {
+                                checkedListBoxEstado.Refresh();
+                                checkedListBoxEstado.Items.Add(respuesta.GetValue(0).ToString());
+                            }
+                        }
+                    }
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                MessageBox.Show(e.Message);
             }
 
         }
@@ -93,37 +106,46 @@ namespace Tp_compañia_de_seguros
             this.CargarComboMedidas();
             this.CargarComboRiesgos();
             this.CargarComboEstados();
-            checkedListBoxEstado.SetItemChecked(0, true);
+            //checkedListBoxEstado.SetItemChecked(0, true);
 
         }
-        
+
         private void buscarButton_Click(object sender, EventArgs e)
         {
             dataGridViewReporte.DataSource = this.TablaReporte();
+            //checkedListBoxEstado.ClearSelected();
         }
 
         public DataTable TablaReporte()
         {
             DataTable tablaReporte = new DataTable();
-            
+
             try
             {
                 MySqlConnection conexion = Conexion.ObtenerConexion();
                 MySqlCommand comando = new MySqlCommand("tablaReporte", conexion);
                 comando.CommandType = CommandType.StoredProcedure;
-                if (this.faltaSeleccionarCombos())
+                this.faltaSeleccionarCombo();
+                if (comboMedidas.SelectedItem != null)
                 {
-                    throw new Exception("Debe seleccionar una medida de seguridad y/o un riesgo.");
+                    comando.Parameters.AddWithValue("@medidaSeleccionada", comboMedidas.SelectedItem.ToString());
                 }
-                comando.Parameters.AddWithValue("@estadoSeleccionado", checkedListBoxEstado.SelectedItem.ToString());
-                comando.Parameters.AddWithValue("@medidaSeleccionada", comboMedidas.SelectedItem.ToString());
-                comando.Parameters.AddWithValue("@riesgoSeleccionado", comboRiesgo.SelectedItem.ToString());
-                if (numericUpDownMax.Value < Constants.MIN || numericUpDownMax.Value > Constants.MAX || numericUpDownMin.Value < Constants.MIN || numericUpDownMin.Value > Constants.MAX )
+                else
                 {
-                    throw new Exception("Debe ingresar valores minimos y maximos validos");
+                    comando.Parameters.AddWithValue("@medidaSeleccionada", null);
+
+                }
+                if (comboRiesgo.SelectedItem != null)
+                {
+                    comando.Parameters.AddWithValue("@riesgoSeleccionado", comboRiesgo.SelectedItem.ToString());
+                }
+                else
+                {
+                    comando.Parameters.AddWithValue("@riesgoSeleccionado", null);
                 }
                 comando.Parameters.AddWithValue("@valorMin", numericUpDownMin.Value);
                 comando.Parameters.AddWithValue("@valorMax", numericUpDownMax.Value);
+                comando.Parameters.AddWithValue("@estadoSeleccionado", checkedListBoxEstado.SelectedItem.ToString());
                 tablaReporte.Load(comando.ExecuteReader());
 
             }
@@ -135,9 +157,13 @@ namespace Tp_compañia_de_seguros
         }
 
 
-        public Boolean faltaSeleccionarCombos()
+        public void faltaSeleccionarCombo()
         {
-            return comboMedidas.SelectedItem == null || comboRiesgo.SelectedItem == null;
+            if (checkedListBoxEstado.CheckedItems.Count == 0)
+            {
+                throw new Exception("Debe seleccionar un opcion para el estado del seguro.");
+            }
+
         }
 
         private void checkedListBoxEstado_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -148,9 +174,18 @@ namespace Tp_compañia_de_seguros
 
         static class Constants
         {
-            public const decimal MAX = 100000000000000;
+            public const decimal MAX = 10000000;
             public const decimal MIN = 0;
         }
 
+        private void buttonCleanRiesgos_Click(object sender, EventArgs e)
+        {
+            comboRiesgo.SelectedItem = null;
+        }
+
+        private void buttonCleanMed_Click(object sender, EventArgs e)
+        {
+            comboMedidas.SelectedItem = null;
+        }
     }
 }
