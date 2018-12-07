@@ -31,3 +31,21 @@ G:\visualstudio-workspace\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\D
 G:\visualstudio-workspace\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp compañia de seguros.csproj.CopyComplete
 G:\visualstudio-workspace\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp compañia de seguros.exe
 G:\visualstudio-workspace\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp compañia de seguros.pdb
+C:\Users\Franco\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\bin\Debug\Tp compañia de seguros.exe.config
+C:\Users\Franco\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\bin\Debug\Tp compañia de seguros.exe
+C:\Users\Franco\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\bin\Debug\Tp compañia de seguros.pdb
+C:\Users\Franco\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\bin\Debug\MySql.Data.dll
+C:\Users\Franco\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\bin\Debug\Google.Protobuf.dll
+C:\Users\Franco\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\bin\Debug\MySql.Data.xml
+C:\Users\Franco\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp compañia de seguros.csprojAssemblyReference.cache
+C:\Users\Franco\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp_compañia_de_seguros.AnularSeguro.resources
+C:\Users\Franco\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp_compañia_de_seguros.Estadisticas.resources
+C:\Users\Franco\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp_compañia_de_seguros.Inicio.resources
+C:\Users\Franco\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp_compañia_de_seguros.Login.resources
+C:\Users\Franco\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp_compañia_de_seguros.Properties.Resources.resources
+C:\Users\Franco\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp_compañia_de_seguros.Reporte.resources
+C:\Users\Franco\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp compañia de seguros.csproj.GenerateResource.cache
+C:\Users\Franco\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp compañia de seguros.csproj.CoreCompileInputs.cache
+C:\Users\Franco\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp compañia de seguros.csproj.CopyComplete
+C:\Users\Franco\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp compañia de seguros.exe
+C:\Users\Franco\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp compañia de seguros.pdb

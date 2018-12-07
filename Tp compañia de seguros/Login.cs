@@ -41,13 +41,14 @@ namespace Tp_compañia_de_seguros
                 }
                 else
                 {
-                    MessageBox.Show("Error al ingresar!", "Error Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw new Exception("Error al ingresar!");
                 }
                 conexion.Close();
             }
-            catch (Exception)
+            catch (Exception error)
             {
-                throw;
+                //MessageBox.Show("", MessageBoxIcon.Error);
+                MessageBox.Show(error.Message, "Error al ingresar!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -55,13 +56,13 @@ namespace Tp_compañia_de_seguros
         {
             if (string.IsNullOrEmpty(user))
             {
-                MessageBox.Show("Ingresar usuario!");
+                
                 throw new Exception("Ingresar usuario!");
             }
 
             if (string.IsNullOrEmpty(pass))
             {
-                MessageBox.Show("Ingresar password!");
+               
                 throw new Exception("Ingresar password!");
             }
 

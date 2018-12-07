@@ -281,10 +281,10 @@ namespace Tp_compañia_de_seguros
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                MessageBox.Show("Error al Anular Seguros!");
-                throw;
+                MessageBox.Show(e.Message);
+                
             }
 
             this.CargarDataGrid();
