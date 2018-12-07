@@ -14,3 +14,20 @@ C:\Users\Franco\source\repos\Tp compañia de seguros\Tp compañia de seguros\obj
 C:\Users\Franco\source\repos\Tp compañia de seguros\Tp compañia de seguros\obj\Debug\Tp_compañia_de_seguros.Estadisticas.resources
 C:\Users\Franco\source\repos\Tp compañia de seguros\Tp compañia de seguros\obj\Debug\Tp_compañia_de_seguros.Inicio.resources
 C:\Users\Franco\source\repos\Tp compañia de seguros\Tp compañia de seguros\obj\Debug\Tp_compañia_de_seguros.Constants.resources
+G:\visualstudio-workspace\tp-base-de-datos-grupo-7\Tp compañia de seguros\bin\Debug\Tp compañia de seguros.exe.config
+G:\visualstudio-workspace\tp-base-de-datos-grupo-7\Tp compañia de seguros\bin\Debug\Tp compañia de seguros.exe
+G:\visualstudio-workspace\tp-base-de-datos-grupo-7\Tp compañia de seguros\bin\Debug\Tp compañia de seguros.pdb
+G:\visualstudio-workspace\tp-base-de-datos-grupo-7\Tp compañia de seguros\bin\Debug\MySql.Data.dll
+G:\visualstudio-workspace\tp-base-de-datos-grupo-7\Tp compañia de seguros\bin\Debug\Google.Protobuf.dll
+G:\visualstudio-workspace\tp-base-de-datos-grupo-7\Tp compañia de seguros\bin\Debug\MySql.Data.xml
+G:\visualstudio-workspace\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp_compañia_de_seguros.AnularSeguro.resources
+G:\visualstudio-workspace\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp_compañia_de_seguros.Estadisticas.resources
+G:\visualstudio-workspace\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp_compañia_de_seguros.Inicio.resources
+G:\visualstudio-workspace\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp_compañia_de_seguros.Login.resources
+G:\visualstudio-workspace\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp_compañia_de_seguros.Properties.Resources.resources
+G:\visualstudio-workspace\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp_compañia_de_seguros.Reporte.resources
+G:\visualstudio-workspace\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp compañia de seguros.csproj.GenerateResource.cache
+G:\visualstudio-workspace\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp compañia de seguros.csproj.CoreCompileInputs.cache
+G:\visualstudio-workspace\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp compañia de seguros.csproj.CopyComplete
+G:\visualstudio-workspace\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp compañia de seguros.exe
+G:\visualstudio-workspace\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp compañia de seguros.pdb

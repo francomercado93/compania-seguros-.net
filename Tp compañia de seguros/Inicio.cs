@@ -17,29 +17,26 @@ namespace Tp_compañia_de_seguros
             InitializeComponent();
         }
 
-        private void Inicio_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Conexion.ObtenerConexion();
-                MessageBox.Show("Conexion exitosa");
-                
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        private void estadisticasToolStripMenuItem_Click(object sender, EventArgs e)
+        private void EstadisticasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new Estadisticas().ShowDialog();
         }
 
-        private void reporteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ReporteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new Reporte().ShowDialog();
+        }
+
+        private void BotonSalir_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login formLogin = new Login();
+            formLogin.Show();
+        }
+
+        private void BotonAnular_Click(object sender, EventArgs e)
+        {
+                new AnularSeguro().ShowDialog();
         }
     }
 }
