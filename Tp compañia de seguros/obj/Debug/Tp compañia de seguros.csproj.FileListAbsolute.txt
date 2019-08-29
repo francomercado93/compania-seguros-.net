@@ -49,3 +49,5 @@ C:\Users\Franco\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\ob
 C:\Users\Franco\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp compañia de seguros.csproj.CopyComplete
 C:\Users\Franco\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp compañia de seguros.exe
 C:\Users\Franco\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp compañia de seguros.pdb
+C:\Users\Familia Mercado\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp compañia de seguros.exe
+C:\Users\Familia Mercado\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp compañia de seguros.pdb
