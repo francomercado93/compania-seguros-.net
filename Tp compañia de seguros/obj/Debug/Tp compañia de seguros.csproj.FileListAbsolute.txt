@@ -51,3 +51,20 @@ C:\Users\Franco\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\ob
 C:\Users\Franco\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp compañia de seguros.pdb
 C:\Users\Familia Mercado\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp compañia de seguros.exe
 C:\Users\Familia Mercado\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp compañia de seguros.pdb
+C:\Users\Familia Mercado\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\bin\Debug\Tp compañia de seguros.exe.config
+C:\Users\Familia Mercado\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\bin\Debug\Tp compañia de seguros.exe
+C:\Users\Familia Mercado\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\bin\Debug\Tp compañia de seguros.pdb
+C:\Users\Familia Mercado\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\bin\Debug\MySql.Data.dll
+C:\Users\Familia Mercado\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\bin\Debug\Google.Protobuf.dll
+C:\Users\Familia Mercado\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\bin\Debug\MySql.Data.xml
+C:\Users\Familia Mercado\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp_compañia_de_seguros.AnularSeguro.resources
+C:\Users\Familia Mercado\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp_compañia_de_seguros.Estadisticas.resources
+C:\Users\Familia Mercado\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp_compañia_de_seguros.Inicio.resources
+C:\Users\Familia Mercado\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp_compañia_de_seguros.Login.resources
+C:\Users\Familia Mercado\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp_compañia_de_seguros.Properties.Resources.resources
+C:\Users\Familia Mercado\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp_compañia_de_seguros.Reporte.resources
+C:\Users\Familia Mercado\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp compañia de seguros.csproj.GenerateResource.cache
+C:\Users\Familia Mercado\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp compañia de seguros.csproj.CoreCompileInputs.cache
+C:\Users\Familia Mercado\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\obj\Debug\Tp compañia de seguros.csproj.CopyComplete
+C:\Users\Familia Mercado\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\bin\Debug\Tp compañia de seguros.exe.CodeAnalysisLog.xml
+C:\Users\Familia Mercado\source\repos\tp-base-de-datos-grupo-7\Tp compañia de seguros\bin\Debug\Tp compañia de seguros.exe.lastcodeanalysissucceeded
